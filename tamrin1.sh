@@ -4,8 +4,18 @@
 
 echo ""
 echo ""
-#bedast avardane karbar id az ba estefade az dastoore $(id) (uid=userId)
+#bedast avardane id karbar ba estefade az dastoore $(id) (uid=userId)
 echo "************************************************************"
+
+#------------ba estefade az dastoore awk------------------
+
+echo  "bedast avardane UID ba dastoore awk :"
+echo -n "User UID is: "
+echo $(id) | awk -F'uid' '{print $2}' | awk -F'=' '{print $2}' | awk -F'(' '{print $1}'
+
+#.---------ba estefade az halghehaye sharti -------------.
+
+echo "bedast avardane UID ba estefade az halghehaye shari :"
 getUserId=$(id)
 found='true'
 foundUid='false'
@@ -80,4 +90,3 @@ echo -en " \e[1;33m $userLoginTimes \e[0m times"
 echo ""
 echo ""
 echo "************************************************************"
-
